@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
-{% block content %}
 {% load humanize %}
+{% block title %}
+| Feature Listing
+{% endblock %}
+{% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
@@ -107,16 +110,16 @@
 
                         {% for i in listings.paginator.page_range %}
                         {% if listings.number == i%}
-                            <li class="page-item active">
-                                <a href="" class="page-link">{{i}}</a>
-                            </li>
+                        <li class="page-item active">
+                            <a href="" class="page-link">{{i}}</a>
+                        </li>
                         {% else %}
-                            <li class="page-item">
-                                <a href="?page={{i}}" class="page-link">{{i}}</a>
-                            </li>
+                        <li class="page-item">
+                            <a href="?page={{i}}" class="page-link">{{i}}</a>
+                        </li>
                         {% endif %}
                         {% endfor %}
-                        
+
                         {% if listings.has_next %}
                         <li class="page-item">
                             <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;</a>
